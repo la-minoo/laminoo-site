@@ -1,13 +1,36 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GraduationCap, Library, Cpu } from "lucide-react";
 
 export default function AcademicPersonalSite() {
   const [isHovered, setIsHovered] = useState(false);
   const [isPinned, setIsPinned] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("about");
   const isProfileOpen = isHovered || isPinned;
+
+  useEffect(() => {
+ 	  const ids = ["about", "research", "work", "referees", "contact"];
+
+ 	  const handleScroll = () => {
+ 		  const scrollY = window.scrollY;
+ 		  let current = "about";
+
+ 		  for (const id of ids) {
+ 			  const el = document.getElementById(id);
+ 			  if (!el) continue;
+ 			  const top = el.offsetTop - 140;
+ 			  if (scrollY >= top) current = id;
+ 		  }
+
+ 		  setActiveSection(current);
+ 	  };
+
+ 	  handleScroll();
+ 	  window.addEventListener("scroll", handleScroll);
+ 	  return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const sections = [
     { label: "About", href: "#about" },
@@ -84,9 +107,8 @@ export default function AcademicPersonalSite() {
 	<div className="relative min-h-screen bg-[#070d24] text-[#edf2ff] selection:bg-[#946b2d]/40 selection:text-white">
 		<div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(27,42,107,0.45),_transparent_35%),radial-gradient(circle_at_bottom_right,_rgba(148,107,45,0.14),_transparent_25%)]" />
 
-			<header className="sticky top-0 z-30 border-b border-[#946b2d]/20 bg-[#070d24]/85 backdrop-blur">
+						<header className="sticky top-0 z-30 border-b border-[#946b2d]/20 bg-[#070d24]/95 backdrop-blur">
 				<div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
-					
 					<div className="flex flex-col items-start">
 						<p className="font-[Glitten] text-[10px] uppercase tracking-[0.28em] text-[#b8c4f2] sm:text-xs sm:tracking-[0.35em]">
 							Simplicity is Intelligence
@@ -114,51 +136,11 @@ export default function AcademicPersonalSite() {
 
 					<button
 						type="button"
-						onClick={() => setMobileMenuOpen(true)}
+						onClick={() => setMobileMenuOpen((prev) => !prev)}
 						className="flex h-10 w-10 items-center justify-center rounded-full border border-[#946b2d]/30 bg-white/5 text-[#edf2ff] transition duration-300 hover:bg-white/10 md:hidden"
-						aria-label="Open menu"
+						aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
 					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							strokeWidth="1.8"
-							className="h-5 w-5"
-						>
-							<path
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								d="M4 6h16M4 12h16M4 18h16"
-							/>
-						</svg>
-					</button>
-				</div>
-
-				<div
-				className={`fixed inset-0 z-40 md:hidden transition-all duration-500 ${
-					mobileMenuOpen ? "pointer-events-auto" : "pointer-events-none"
-				}`}
-			>
-				<div
-					className={`absolute inset-0 bg-black/25 transition-opacity duration-500 ${
-						mobileMenuOpen ? "opacity-100" : "opacity-0"
-					}`}
-					onClick={() => setMobileMenuOpen(false)}
-				/>
-
-				<div
-					className={`absolute right-0 top-0 flex h-full w-[78%] max-w-[320px] flex-col border-l border-white/10 bg-[#060b1f] px-6 py-6 shadow-2xl transition-transform duration-500 ease-out ${
-						mobileMenuOpen ? "translate-x-0" : "translate-x-full"
-					}`}
-				>
-					<div className="flex justify-end">
-						<button
-							type="button"
-							onClick={() => setMobileMenuOpen(false)}
-							className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[#edf2ff] transition duration-300 hover:bg-white/10"
-							aria-label="Close menu"
-						>
+						{mobileMenuOpen ? (
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								viewBox="0 0 24 24"
@@ -173,30 +155,58 @@ export default function AcademicPersonalSite() {
 									d="M6 6l12 12M18 6L6 18"
 								/>
 							</svg>
-						</button>
-					</div>
-
-					<nav className="mt-12 flex flex-col gap-6">
-						{sections.map((item, index) => (
-							<a
-								key={item.label}
-								href={item.href}
-								target={item.href === "/cv.pdf" ? "_blank" : "_self"}
-								rel="noopener noreferrer"
-								onClick={() => setMobileMenuOpen(false)}
-								className={`font-[Montserrat] text-[1.45rem] leading-none text-[#edf2ff] transition-all duration-500 hover:text-[#c4933f] ${
-									mobileMenuOpen
-										? "translate-x-0 opacity-100"
-										: "translate-x-6 opacity-0"
-								}`}
-								style={{ transitionDelay: `${index * 60}ms` }}
+						) : (
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								strokeWidth="1.8"
+								className="h-5 w-5"
 							>
-								{item.label}
-							</a>
-						))}
+								<path
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									d="M4 6h16M4 12h16M4 18h16"
+								/>
+							</svg>
+						)}
+					</button>
+				</div>
+
+				<div
+					className={`fixed right-0 top-[73px] z-40 h-[calc(100vh-73px)] w-[72%] max-w-[320px] border-l border-white/10 bg-[#060b1f] shadow-2xl transition-transform duration-500 ease-out md:hidden ${
+						mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+					}`}
+				>
+					<nav className="flex h-full flex-col overflow-y-auto px-8 py-10">
+						{sections.map((item, index) => {
+							const sectionKey =
+								item.href.startsWith("#") ? item.href.replace("#", "") : null;
+							const isActive = sectionKey ? activeSection === sectionKey : false;
+							return (
+								<a
+									key={item.label}
+									href={item.href}
+									target={item.href === "/cv.pdf" ? "_blank" : "_self"}
+									rel="noopener noreferrer"
+									onClick={() => setMobileMenuOpen(false)}
+									className={`mb-8 w-fit font-[Montserrat] text-[1.35rem] tracking-[0.08em] transition-all duration-300 ${
+										isActive
+											? "text-white"
+											: "text-[#d9d9d9]/75 hover:text-white"
+									}`}
+									style={{ transitionDelay: mobileMenuOpen ? `${index * 45}ms` : "0ms" }}
+								>
+									<span className="block">{item.label.toUpperCase()}</span>
+									{isActive && item.href.startsWith("#") && (
+										<span className="mt-2 block h-[2px] w-[138px] bg-[#b11f3f]" />
+									)}
+								</a>
+							);
+						})}
 					</nav>
 				</div>
-			</div>
 			</header>
 
       <main>
