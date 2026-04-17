@@ -344,7 +344,7 @@ export default function AcademicPersonalSite() {
               </div>
 
               <div
-                className={`absolute left-40 top-0 z-30 w-[760px] rounded-[1.75rem] border border-[#8ea0e8]/15 bg-[#0d1638]/95 p-8 text-sm leading-7 text-[#d8e1ff] font-[Montserrat] shadow-2xl backdrop-blur transition-all duration-300 ${
+                className={`absolute left-40 top-0 z-30 hidden w-[760px] rounded-[1.75rem] border border-[#8ea0e8]/15 bg-[#0d1638]/95 p-8 text-sm leading-7 text-[#d8e1ff] font-[Montserrat] shadow-2xl backdrop-blur transition-all duration-300 md:block ${
                   isProfileOpen
                     ? "opacity-100 translate-x-0"
                     : "pointer-events-none opacity-0 -translate-x-4"
