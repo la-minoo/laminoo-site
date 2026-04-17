@@ -225,7 +225,7 @@ export default function AcademicPersonalSite() {
 								>
 									<span className="block">{item.label.toUpperCase()}</span>
 									{isActive && item.href.startsWith("#") && (
-										<span className="mt-2 block h-[2px] w-[138px] bg-[#b11f3f]" />
+										<span className="mt-2 block h-[2px] w-[138px] bg-gradient-to-r from-[#c4933f] to-[#8ea0e8]" />
 									)}
 								</a>
 							);
