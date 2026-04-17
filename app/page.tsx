@@ -7,6 +7,7 @@ export default function AcademicPersonalSite() {
   const [isHovered, setIsHovered] = useState(false);
   const [isPinned, setIsPinned] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileProfileOpen, setMobileProfileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("about");
   const isProfileOpen = isHovered || isPinned;
 
@@ -279,7 +280,7 @@ export default function AcademicPersonalSite() {
                     <Library className="h-[18px] w-[18px] text-[#c4933f]" />
                     <p>Fields of Study</p>
                   </div>
-                  <p>IS, DS, Machine Learning, NLP</p>
+                  <p>IS, DS, Business Analytics, Machine Learning, NLP</p>
                 </div>
 
                   <div>
@@ -329,19 +330,150 @@ export default function AcademicPersonalSite() {
               </h3>
             </div>
 
-            <div className="relative overflow-visible">
-              <div
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-                onClick={() => setIsPinned((prev) => !prev)}
-                className="flex h-32 w-32 cursor-pointer items-center justify-center rounded-[1.75rem] border border-[#8ea0e8]/15 bg-white/5 p-5 shadow-xl shadow-black/20 backdrop-blur transition duration-300 hover:scale-[1.05]"
-              >
+            <div
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              onClick={() => setIsPinned((prev) => !prev)}
+              className="hidden h-32 w-32 cursor-pointer items-center justify-center rounded-[1.75rem] border border-[#8ea0e8]/15 bg-white/5 p-5 shadow-xl shadow-black/20 backdrop-blur transition duration-300 hover:scale-[1.05] md:flex"
+            >
+              <img
+                src="/ku-logo.png"
+                alt="Korea University logo"
+                className="h-[4.5rem] w-[4.5rem] object-contain"
+              />
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setMobileProfileOpen((prev) => !prev)}
+              className="flex w-full items-center gap-4 rounded-[1.5rem] border border-[#8ea0e8]/15 bg-white/5 p-4 text-left shadow-xl shadow-black/20 backdrop-blur transition md:hidden"
+            >
+              <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-[1.25rem] border border-[#8ea0e8]/15 bg-[#0d1638] p-3">
                 <img
                   src="/ku-logo.png"
                   alt="Korea University logo"
-                  className="h-[4.5rem] w-[4.5rem] object-contain"
+                  className="h-12 w-12 object-contain"
                 />
               </div>
+
+              <div className="min-w-0 flex-1">
+                <p className="font-[Glitten] text-sm uppercase tracking-[0.28em] text-[#c4933f]">
+                  Tap to expand
+                </p>
+                <p className="mt-1 font-serif text-xl text-white">
+                  Korea University Business School
+                </p>
+                <p className="mt-1 text-sm font-[Montserrat] text-[#d8e1ff]">
+                  Academic profile, coursework, experience, honors, and skills
+                </p>
+              </div>
+            </button>
+
+            <div
+              className={`mt-4 overflow-hidden rounded-[1.75rem] border border-[#8ea0e8]/15 bg-[#0d1638]/95 text-sm leading-7 text-[#d8e1ff] font-[Montserrat] shadow-2xl backdrop-blur transition-all duration-300 md:hidden ${
+                mobileProfileOpen
+                  ? "max-h-[4000px] opacity-100 p-5"
+                  : "max-h-0 opacity-0 p-0 border-transparent"
+              }`}
+            >
+              <div className="border-b border-[#8ea0e8]/10 pb-6">
+                <h4 className="font-serif text-2xl text-white">
+                  Korea University Business School (KUBS)
+                </h4>
+                <p className="mt-3 text-base font-semibold text-[#c4933f]">
+                  Bachelor of Business Administration
+                </p>
+                <p className="mt-1 font-semibold text-[#d8e1ff]">
+                  Expected Graduation: February 2027 (Early Graduation)
+                </p>
+
+                <div className="mt-5 space-y-2">
+                  <p>
+                    <span className="font-semibold text-[#91a5ef]">Concentration:</span>{" "}
+                    Information Systems &amp; Analytics
+                  </p>
+                  <div>
+                    <p className="font-semibold text-[#91a5ef]">Completed Tracks:</p>
+                    <ul className="mt-2 list-disc space-y-1 pl-5 text-[#d8e1ff]">
+                      <li>Business Analytics (비즈니스애널리틱스)</li>
+                      <li>Artificial Intelligence for Business (AI와경영)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 border-b border-[#8ea0e8]/10 pb-6">
+                <h5 className="font-serif text-xl text-white">Relevant Coursework</h5>
+
+                <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                  {coursework.map((course) => (
+                    <div
+                      key={course}
+                      className="flex min-h-[88px] items-center justify-center rounded-xl border border-[#8ea0e8]/10 bg-white/5 px-3 py-3 text-center text-xs leading-5 text-[#dce5ff]"
+                    >
+                      {course}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-6 border-b border-[#8ea0e8]/10 pb-6">
+                <h5 className="font-serif text-xl text-white">Academic Experience</h5>
+
+                <div className="mt-4">
+                  <p className="font-semibold text-[#c4933f]">
+                    KUBS Official Undergraduate Tutor
+                  </p>
+                  <p className="font-semibold text-[#d8e1ff]">Mar 2026 - Present</p>
+                  <div className="mt-3">
+                    <p className="font-semibold text-[#91a5ef]">Tutoring Subjects:</p>
+                    <ul className="mt-2 list-disc space-y-1 pl-5 text-[#d8e1ff]">
+                      <li>Business Statistics</li>
+                      <li>Management Information Systems</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 border-b border-[#8ea0e8]/10 pb-6">
+                <h5 className="font-serif text-xl text-white">Awards & Honors</h5>
+                <ul className="mt-2 list-disc space-y-1 pl-5 text-[#d8e1ff]">
+                  <li>Dean's Award</li>
+                  <li>
+                    Admission/Excellent/Top Scholarships, <em>Korea University</em> - 2023,
+                    2024, 2025
+                  </li>
+                </ul>
+              </div>
+
+              <div className="mt-6">
+                <h5 className="font-serif text-xl text-white">Technical Skills</h5>
+
+                <div className="mt-4 space-y-3">
+                  <p>
+                    <span className="font-semibold text-[#91a5ef]">Programming:</span>{" "}
+                    Python, R, SQL (PostgreSQL), C++
+                  </p>
+                  <p>
+                    <span className="font-semibold text-[#91a5ef]">
+                      Machine Learning &amp; AI:
+                    </span>{" "}
+                    scikit-learn, Hugging Face Transformers, LangChain, LangGraph, PyTorch ·
+                    TensorFlow, OpenAI API
+                  </p>
+                  <p>
+                    <span className="font-semibold text-[#91a5ef]">
+                      Data Analysis Tools:
+                    </span>{" "}
+                    pandas, NumPy, matplotlib · seaborn · ggplot2, Excel, Tableau
+                  </p>
+                  <p>
+                    <span className="font-semibold text-[#91a5ef]">Web &amp; Misc:</span>{" "}
+                    HTML/CSS, SeleniumBase, Streamlit, Git
+                  </p>
+                </div>
+              </div>
+            </div>
 
               <div
                 className={`absolute left-40 top-0 z-30 hidden w-[760px] rounded-[1.75rem] border border-[#8ea0e8]/15 bg-[#0d1638]/95 p-8 text-sm leading-7 text-[#d8e1ff] font-[Montserrat] shadow-2xl backdrop-blur transition-all duration-300 md:block ${
