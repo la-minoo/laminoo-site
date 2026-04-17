@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { GraduationCap, Library, Cpu } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function AcademicPersonalSite() {
   const [isHovered, setIsHovered] = useState(false);
@@ -641,9 +642,14 @@ export default function AcademicPersonalSite() {
 					<div className="grid gap-6 md:grid-cols-3">
 
 						{/* Predictive ML */}
-						<div className="group rounded-[2rem] border border-[#8ea0e8]/15 bg-gradient-to-b from-white/8 to-white/[0.03] p-7 
-						transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/30">
-							
+						<motion.div
+							initial={{ opacity: 0, y: 40 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true, amount: 0.2 }}
+							transition={{ duration: 0.7, delay: 0 }}
+							className="group rounded-[2rem] border border-[#8ea0e8]/15 bg-gradient-to-b from-white/8 to-white/[0.03] p-7 
+							transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/30"
+						>
 							<h4 className="font-serif text-xl text-white">Predictive ML</h4>
 
 							<ul className="mt-4 space-y-2 text-sm leading-7 text-[#d5def8] font-[Montserrat]">
@@ -652,13 +658,18 @@ export default function AcademicPersonalSite() {
 								<li>Representation Learning for Structured Data</li>
 								<li>Transfer / Meta Learning</li>
 							</ul>
-						</div>
+						</motion.div>
 
 
 						{/* NLP for IR */}
-						<div className="group rounded-[2rem] border border-[#8ea0e8]/15 bg-gradient-to-b from-white/8 to-white/[0.03] p-7 
-						transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/30">
-							
+						<motion.div
+							initial={{ opacity: 0, y: 40 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true, amount: 0.2 }}
+							transition={{ duration: 0.7, delay: 0.15 }}
+							className="group rounded-[2rem] border border-[#8ea0e8]/15 bg-gradient-to-b from-white/8 to-white/[0.03] p-7 
+							transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/30"
+						>
 							<h4 className="font-serif text-xl text-white">NLP for IR</h4>
 
 							<ul className="mt-4 space-y-2 text-sm leading-7 text-[#d5def8] font-[Montserrat]">
@@ -666,13 +677,18 @@ export default function AcademicPersonalSite() {
 								<li>Semantic Collapse &amp; LLM Hallucination</li>
 								<li>Explainability in Neural IR</li>
 							</ul>
-						</div>
+						</motion.div>
 
 
 						{/* X-Agentic Systems */}
-						<div className="group rounded-[2rem] border border-[#8ea0e8]/15 bg-gradient-to-b from-white/8 to-white/[0.03] p-7 
-						transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/30">
-							
+						<motion.div
+							initial={{ opacity: 0, y: 40 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true, amount: 0.2 }}
+							transition={{ duration: 0.7, delay: 0.3 }}
+							className="group rounded-[2rem] border border-[#8ea0e8]/15 bg-gradient-to-b from-white/8 to-white/[0.03] p-7 
+							transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/30"
+						>
 							<h4 className="font-serif text-xl text-white">X-Agentic Systems</h4>
 
 							<ul className="mt-4 space-y-2 text-sm leading-7 text-[#d5def8] font-[Montserrat]">
@@ -680,7 +696,7 @@ export default function AcademicPersonalSite() {
 								<li>Planning &amp; Tool Use</li>
 								<li>RA Agentic Systems</li>
 							</ul>
-						</div>
+						</motion.div>
 
 					</div>
         </section>
@@ -748,18 +764,32 @@ export default function AcademicPersonalSite() {
         </section>
 
         <section id="referees" className="scroll-mt-20 mx-auto max-w-6xl px-6 py-16">
-          <div className="mb-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6 }}
+            className="mb-8"
+          >
             <p className="text-sm uppercase tracking-[0.35em] text-[#c4933f] font-[Glitten]">
               Referees
             </p>
             <h3 className="mt-3 font-serif text-3xl text-white">
               Academic References
             </h3>
-          </div>
+          </motion.div>
+
           <div className="grid gap-6 md:grid-cols-3">
-            {referees.map((referee) => (
-              <div
+            {referees.map((referee, index) => (
+              <motion.div
                 key={referee.name}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{
+                  duration: 0.7,
+                  delay: index * 0.15,
+                }}
                 className="rounded-[2rem] border border-[#946b2d]/20 bg-[#0d1433] p-7 text-[#e3e9ff]"
               >
                 <h4 className="font-serif text-2xl text-white">
@@ -779,23 +809,29 @@ export default function AcademicPersonalSite() {
                   </p>
                   <p>
                     <span className="text-[#91a5ef]">Homepage:</span>{" "}
-                      <a
-                        href={referee.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#c4933f] hover:underline"
-                      >
-                        Visit
-                      </a>
+                    <a
+                      href={referee.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#c4933f] hover:underline"
+                    >
+                      Visit
+                    </a>
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </section>
 
         <section id="contact" className="scroll-mt-20 mx-auto max-w-6xl px-6 py-20">
-          <div className="rounded-[2.25rem] border border-[#946b2d]/25 bg-gradient-to-r from-[#0d1433] to-[#101a43] p-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7 }}
+            className="rounded-[2.25rem] border border-[#946b2d]/25 bg-gradient-to-r from-[#0d1433] to-[#101a43] p-10 text-center"
+          >
             <p className="text-sm uppercase tracking-[0.35em] text-[#c4933f] font-[Glitten]">
               Contact
             </p>
@@ -831,7 +867,7 @@ export default function AcademicPersonalSite() {
                 GitHub
               </a>
             </div>
-          </div>
+          </motion.div>
         </section>
       </main>
     </div>
