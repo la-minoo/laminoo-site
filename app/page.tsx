@@ -6,7 +6,7 @@ import { GraduationCap, Library, Cpu } from "lucide-react";
 export default function AcademicPersonalSite() {
   const [isHovered, setIsHovered] = useState(false);
   const [isPinned, setIsPinned] = useState(false);
-
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const isProfileOpen = isHovered || isPinned;
 
   const sections = [
@@ -84,29 +84,117 @@ export default function AcademicPersonalSite() {
     <div className="min-h-screen bg-[#070d24] text-[#edf2ff] selection:bg-[#946b2d]/40 selection:text-white">
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(27,42,107,0.45),_transparent_35%),radial-gradient(circle_at_bottom_right,_rgba(148,107,45,0.14),_transparent_25%)]" />
 
-      <header className="sticky top-0 z-20 border-b border-[#946b2d]/20 bg-[#070d24]/85 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <div className="flex flex-col items-start">
-            <p className="text-xs uppercase tracking-[0.35em] text-[#b8c4f2] font-[Glitten]">
-              Simplicity is Intelligence
-            </p>
-            <img src="/logo.png" alt="logo" className="mt-1 h-8 w-auto opacity-90" />
-          </div>
-          <nav className="hidden gap-6 md:flex">
-            {sections.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                target={item.href === "/cv.pdf" ? "_blank" : "_self"}
-                rel="noopener noreferrer"
-                className="text-sm text-[#d9e2ff] font-[Montserrat] transition hover:text-[#c4933f]"
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-        </div>
-      </header>
+			<header className="sticky top-0 z-20 border-b border-[#946b2d]/20 bg-[#070d24]/85 backdrop-blur">
+				<div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
+					
+					<div className="flex flex-col items-start">
+						<p className="font-[Glitten] text-[10px] uppercase tracking-[0.28em] text-[#b8c4f2] sm:text-xs sm:tracking-[0.35em]">
+							Simplicity is Intelligence
+						</p>
+						<img
+							src="/logo.png"
+							alt="logo"
+							className="mt-1 h-7 w-auto opacity-90 sm:h-8"
+						/>
+					</div>
+
+					{/* Desktop nav */}
+					<nav className="hidden gap-6 md:flex">
+						{sections.map((item) => (
+							<a
+								key={item.label}
+								href={item.href}
+								target={item.href === "/cv.pdf" ? "_blank" : "_self"}
+								rel="noopener noreferrer"
+								className="font-[Montserrat] text-sm text-[#d9e2ff] transition hover:text-[#c4933f]"
+							>
+								{item.label}
+							</a>
+						))}
+					</nav>
+
+					{/* Mobile menu button */}
+					<button
+						type="button"
+						onClick={() => setMobileMenuOpen(true)}
+						className="flex h-10 w-10 items-center justify-center rounded-full border border-[#946b2d]/30 bg-white/5 text-[#edf2ff] md:hidden"
+						aria-label="Open menu"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							strokeWidth="1.8"
+							className="h-5 w-5"
+						>
+							<path
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								d="M4 6h16M4 12h16M4 18h16"
+							/>
+						</svg>
+					</button>
+				</div>
+
+				{/* Mobile menu */}
+				{mobileMenuOpen && (
+					<div className="fixed inset-0 z-30 bg-[#070d24]/95 backdrop-blur-md md:hidden">
+						<div className="flex min-h-screen flex-col px-6 py-5">
+							
+							<div className="flex items-start justify-between">
+								<div className="flex flex-col items-start">
+									<p className="font-[Glitten] text-[10px] uppercase tracking-[0.28em] text-[#b8c4f2]">
+										Simplicity is Intelligence
+									</p>
+									<img
+										src="/logo.png"
+										alt="logo"
+										className="mt-1 h-7 w-auto opacity-90"
+									/>
+								</div>
+
+								<button
+									type="button"
+									onClick={() => setMobileMenuOpen(false)}
+									className="flex h-10 w-10 items-center justify-center rounded-full border border-[#946b2d]/30 bg-white/5 text-[#edf2ff]"
+									aria-label="Close menu"
+								>
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										strokeWidth="1.8"
+										className="h-5 w-5"
+									>
+										<path
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											d="M6 6l12 12M18 6L6 18"
+										/>
+									</svg>
+								</button>
+							</div>
+
+							<nav className="mt-14 flex flex-col gap-6">
+								{sections.map((item) => (
+									<a
+										key={item.label}
+										href={item.href}
+										target={item.href === "/cv.pdf" ? "_blank" : "_self"}
+										rel="noopener noreferrer"
+										onClick={() => setMobileMenuOpen(false)}
+										className="font-[Montserrat] text-2xl text-[#edf2ff] transition hover:text-[#c4933f]"
+									>
+										{item.label}
+									</a>
+								))}
+							</nav>
+						</div>
+					</div>
+				)}
+			</header>
 
       <main>
         <section className="mx-auto grid max-w-6xl gap-10 px-6 pb-10 pt-20 md:grid-cols-[1.2fr_0.8fr] md:pt-24">
@@ -328,7 +416,7 @@ export default function AcademicPersonalSite() {
                     <li>Dean's Award</li>
                     <li>
                       Admission/Excellent/Top Scholarships,{" "}
-                      <em>Korea University</em>, 2023, 2024, 2025
+                      <em>Korea University</em> - 2023, 2024, 2025
                     </li>
                   </ul>
                 </div>
@@ -419,9 +507,9 @@ export default function AcademicPersonalSite() {
 							<h4 className="font-serif text-xl text-white">X-Agentic Systems</h4>
 
 							<ul className="mt-4 space-y-2 text-sm leading-7 text-[#d5def8] font-[Montserrat]">
-								<li><span className="text-white font-medium">RA Agentic Systems</span></li>
+								<li><span className="text-white font-medium">ML Monitoring</span></li>
 								<li>Planning &amp; Tool Use</li>
-								<li>ML Monitoring</li>
+								<li>RA Agentic Systems</li>
 							</ul>
 						</div>
 
