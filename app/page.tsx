@@ -35,7 +35,7 @@ export default function AcademicPersonalSite() {
 
   useEffect(() => {
    if (mobileMenuOpen) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = "";
    } else {
       document.body.style.overflow = "";
    }
@@ -117,10 +117,10 @@ export default function AcademicPersonalSite() {
   ];
 
   return (
-	<div className="relative min-h-screen bg-[#070d24] text-[#edf2ff] selection:bg-[#946b2d]/40 selection:text-white">
-		<div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(27,42,107,0.45),_transparent_35%),radial-gradient(circle_at_bottom_right,_rgba(148,107,45,0.14),_transparent_25%)]" />
+	  <div className="relative min-h-screen bg-[#070d24] text-[#edf2ff] selection:bg-[#946b2d]/40 selection:text-white">
+		  <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(27,42,107,0.45),_transparent_35%),radial-gradient(circle_at_bottom_right,_rgba(148,107,45,0.14),_transparent_25%)]" />
 
-						<header className="sticky top-0 z-30 border-b border-[#946b2d]/20 bg-[#070d24]/95 backdrop-blur">
+			<header className="sticky top-0 z-[60] border-b border-[#946b2d]/20 bg-[#070d24]/95 backdrop-blur">
 				<div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
 					<div className="flex flex-col items-start">
 						<p className="font-[Glitten] text-[10px] uppercase tracking-[0.28em] text-[#b8c4f2] sm:text-xs sm:tracking-[0.35em]">
@@ -194,11 +194,11 @@ export default function AcademicPersonalSite() {
           />
         )}
         
-        <div
-					className={`fixed right-0 top-[73px] z-50 h-[calc(100vh-73px)] w-[72%] max-w-[320px] border-l border-white/10 bg-[#060b1f] shadow-2xl transition-transform duration-500 ease-out md:hidden ${
-						mobileMenuOpen ? "translate-x-0" : "translate-x-full"
-					}`}
-				>
+        <div className={`fixed inset-y-0 right-0 z-50 w-[78%] max-w-[320px] border-l border-white/10 bg-[#060b1f] shadow-2xl transition-transform duration-500 ease-out md:hidden ${
+          mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+
 					<nav className="flex h-full flex-col overflow-y-auto px-8 py-10">
 						{sections.map((item, index) => {
 							const sectionKey =
