@@ -33,6 +33,18 @@ export default function AcademicPersonalSite() {
  	  return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+   if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+   } else {
+      document.body.style.overflow = "";
+   }
+
+   return () => {
+      document.body.style.overflow = "";
+   };
+  }, [mobileMenuOpen]);
+
   const sections = [
     { label: "About", href: "#about" },
     { label: "CV", href: "/cv.pdf" },
@@ -175,8 +187,15 @@ export default function AcademicPersonalSite() {
 					</button>
 				</div>
 
-				<div
-					className={`fixed right-0 top-[73px] z-40 h-[calc(100vh-73px)] w-[72%] max-w-[320px] border-l border-white/10 bg-[#060b1f] shadow-2xl transition-transform duration-500 ease-out md:hidden ${
+        {mobileMenuOpen && (
+          <div
+            className="fixed inset-0 z-40 bg-black/40 md:hidden"
+            onClick={() => setMobileMenuOpen(false)}
+          />
+        )}
+        
+        <div
+					className={`fixed right-0 top-[73px] z-50 h-[calc(100vh-73px)] w-[72%] max-w-[320px] border-l border-white/10 bg-[#060b1f] shadow-2xl transition-transform duration-500 ease-out md:hidden ${
 						mobileMenuOpen ? "translate-x-0" : "translate-x-full"
 					}`}
 				>
@@ -358,13 +377,13 @@ export default function AcademicPersonalSite() {
 
               <div className="min-w-0 flex-1">
                 <p className="font-[Glitten] text-sm uppercase tracking-[0.28em] text-[#c4933f]">
-                  Tap to expand
+                  TAP TO EXPAND
                 </p>
                 <p className="mt-1 font-serif text-xl text-white">
                   Korea University Business School
                 </p>
                 <p className="mt-1 text-sm font-[Montserrat] text-[#d8e1ff]">
-                  Academic profile, coursework, experience, honors, and skills
+                  Education, coursework, experience, honors, and skills
                 </p>
               </div>
             </button>
@@ -475,12 +494,11 @@ export default function AcademicPersonalSite() {
               </div>
             </div>
 
-              <div
-                className={`absolute left-40 top-0 z-30 hidden w-[760px] rounded-[1.75rem] border border-[#8ea0e8]/15 bg-[#0d1638]/95 p-8 text-sm leading-7 text-[#d8e1ff] font-[Montserrat] shadow-2xl backdrop-blur transition-all duration-300 md:block ${
-                  isProfileOpen
-                    ? "opacity-100 translate-x-0"
-                    : "pointer-events-none opacity-0 -translate-x-4"
-                }`}
+              <div className={`mt-6 hidden w-full max-w-5xl rounded-[1.75rem] border border-[#8ea0e8]/15 bg-[#0d1638]/95 p-8 text-sm leading-7 text-[#d8e1ff] font-[Montserrat] shadow-2xl backdrop-blur transition-all duration-300 md:block ${
+                isProfileOpen
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 -translate-y-4 pointer-events-none"
+              }`}
               >
                 <div className="border-b border-[#8ea0e8]/10 pb-6">
                   <h4 className="font-serif text-2xl text-white">
