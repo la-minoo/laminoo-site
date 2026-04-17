@@ -390,7 +390,7 @@ export default function AcademicPersonalSite() {
                   Korea University Business School
                 </p>
                 <p className="mt-1 text-sm font-[Montserrat] text-[#d8e1ff]">
-                  Education, coursework, experience, honors, and skills
+                  Education, Coursework, Experience, Awards, and Skills
                 </p>
               </div>
             </button>
