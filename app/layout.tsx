@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Minoo La',
-  description: 'Personal academic website of Minoo La',
+  title: 'La Min Oo',
+  description: 'Academic personal website of Minoo La',
 }
 
 export default function RootLayout({

@@ -381,33 +381,51 @@ export default function AcademicPersonalSite() {
               Current Areas of Interest
             </h3>
           </div>
-          <div className="grid gap-6 md:grid-cols-3">
-            <div className="rounded-[2rem] border border-[#8ea0e8]/15 bg-gradient-to-b from-white/8 to-white/[0.03] p-7">
-              <h4 className="font-serif text-xl text-white">Predictive ML</h4>
-              <ul className="mt-4 list-disc pl-13 text-sm leading-7 text-[#d5def8] font-[Montserrat]">
-                <li>Decision-aware Prediction</li>
-                <li>Distribution Shift</li>
-                <li>Representation Learning for Structured Data</li>
-                <li>Transfer / Meta Learning</li>
-              </ul>
-            </div>
-            <div className="rounded-[2rem] border border-[#8ea0e8]/15 bg-gradient-to-b from-white/8 to-white/[0.03] p-7">
-              <h4 className="font-serif text-xl text-white">NLP for IR</h4>
-              <ul className="mt-4 list-disc pl-13 text-sm leading-7 text-[#d5def8] font-[Montserrat]">
-                <li>NL Preprocessing</li>
-                <li>Semantic Collapse &amp; LLM Hallucination</li>
-                <li>Explainability in Neural IR</li>            
-              </ul>
-            </div>
-            <div className="rounded-[2rem] border border-[#8ea0e8]/15 bg-gradient-to-b from-white/8 to-white/[0.03] p-7">
-              <h4 className="font-serif text-xl text-white">X-Agentic Systems</h4>
-              <ul className="mt-4 list-disc pl-13 text-sm leading-7 text-[#d5def8] font-[Montserrat]">
-                <li>RA Agentic Systems</li>
-                <li>Planning &amp; Tool Use</li>
-                <li>ML Monitoring</li>
-              </ul>
-            </div>
-          </div>
+					<div className="grid gap-6 md:grid-cols-3">
+
+						{/* Predictive ML */}
+						<div className="group rounded-[2rem] border border-[#8ea0e8]/15 bg-gradient-to-b from-white/8 to-white/[0.03] p-7 
+						transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/30">
+							
+							<h4 className="font-serif text-xl text-white">Predictive ML</h4>
+
+							<ul className="mt-4 space-y-2 text-sm leading-7 text-[#d5def8] font-[Montserrat]">
+								<li><span className="text-white font-medium">Decision-aware Prediction</span></li>
+								<li>Distribution Shift</li>
+								<li>Representation Learning for Structured Data</li>
+								<li>Transfer / Meta Learning</li>
+							</ul>
+						</div>
+
+
+						{/* NLP for IR */}
+						<div className="group rounded-[2rem] border border-[#8ea0e8]/15 bg-gradient-to-b from-white/8 to-white/[0.03] p-7 
+						transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/30">
+							
+							<h4 className="font-serif text-xl text-white">NLP for IR</h4>
+
+							<ul className="mt-4 space-y-2 text-sm leading-7 text-[#d5def8] font-[Montserrat]">
+								<li><span className="text-white font-medium">NL Preprocessing</span></li>
+								<li>Semantic Collapse &amp; LLM Hallucination</li>
+								<li>Explainability in Neural IR</li>
+							</ul>
+						</div>
+
+
+						{/* X-Agentic Systems */}
+						<div className="group rounded-[2rem] border border-[#8ea0e8]/15 bg-gradient-to-b from-white/8 to-white/[0.03] p-7 
+						transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/30">
+							
+							<h4 className="font-serif text-xl text-white">X-Agentic Systems</h4>
+
+							<ul className="mt-4 space-y-2 text-sm leading-7 text-[#d5def8] font-[Montserrat]">
+								<li><span className="text-white font-medium">RA Agentic Systems</span></li>
+								<li>Planning &amp; Tool Use</li>
+								<li>ML Monitoring</li>
+							</ul>
+						</div>
+
+					</div>
         </section>
 
         <section id="work" className="scroll-mt-20 mx-auto max-w-6xl px-6 py-8">
