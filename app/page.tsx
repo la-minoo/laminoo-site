@@ -123,7 +123,7 @@ export default function AcademicPersonalSite() {
 	  <div className="relative min-h-screen bg-[#070d24] text-[#edf2ff] selection:bg-[#946b2d]/40 selection:text-white">
 		  <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(27,42,107,0.45),_transparent_35%),radial-gradient(circle_at_bottom_right,_rgba(148,107,45,0.14),_transparent_25%)]" />
 
-			<header className="sticky top-0 z-[60] border-b border-[#946b2d]/20 bg-[#070d24]/95 backdrop-blur">
+			      <header className="sticky top-0 z-[60] border-b border-[#946b2d]/20 bg-[#070d24]/95 backdrop-blur">
 				<div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
 					<div className="flex flex-col items-start">
 						<p className="font-[Glitten] text-[10px] uppercase tracking-[0.28em] text-[#b8c4f2] sm:text-xs sm:tracking-[0.35em]">
@@ -189,6 +189,7 @@ export default function AcademicPersonalSite() {
 						)}
 					</button>
 				</div>
+			</header>
 
         {mobileMenuOpen && (
           <div
@@ -231,7 +232,6 @@ export default function AcademicPersonalSite() {
 						})}
 					</nav>
 				</div>
-			</header>
 
       <main>
         <section className="mx-auto grid max-w-6xl gap-10 px-6 pb-10 pt-20 md:grid-cols-[1.2fr_0.8fr] md:pt-24">
