@@ -349,6 +349,8 @@ export default function AcademicPersonalSite() {
               </h3>
             </div>
 
+          <div className="relative overflow-visible">
+
             <div
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
@@ -494,11 +496,11 @@ export default function AcademicPersonalSite() {
               </div>
             </div>
 
-              <div className={`mt-6 hidden w-full max-w-5xl rounded-[1.75rem] border border-[#8ea0e8]/15 bg-[#0d1638]/95 p-8 text-sm leading-7 text-[#d8e1ff] font-[Montserrat] shadow-2xl backdrop-blur transition-all duration-300 md:block ${
+              <div className={`absolute left-0 top-full mt-4 hidden w-[900px] max-w-[90vw] rounded-[1.75rem] border border-[#8ea0e8]/15 bg-[#0d1638]/95 p-8 text-sm leading-7 text-[#d8e1ff] font-[Montserrat] shadow-2xl backdrop-blur transition-all duration-300 md:block ${
                 isProfileOpen
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 -translate-y-4 pointer-events-none"
-              }`}
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 -translate-y-4 pointer-events-none"
+                }`}
               >
                 <div className="border-b border-[#8ea0e8]/10 pb-6">
                   <h4 className="font-serif text-2xl text-white">
@@ -619,6 +621,7 @@ export default function AcademicPersonalSite() {
                   </div>
                 </div>
               </div>
+            </div>
           </div>
         </section>
 
