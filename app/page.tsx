@@ -9,7 +9,10 @@ export default function AcademicPersonalSite() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileProfileOpen, setMobileProfileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("about");
-  const isProfileOpen = isHovered || isPinned;
+  const isProfileOpen =
+    typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches
+      ? isHovered || isPinned   // desktop
+      : isPinned;               // touch devices (iPad, mobile)
 
   useEffect(() => {
  	  const ids = ["about", "research", "work", "referees", "contact"];
@@ -194,7 +197,7 @@ export default function AcademicPersonalSite() {
           />
         )}
         
-        <div className={`fixed inset-y-0 right-0 z-50 w-[78%] max-w-[320px] border-l border-white/10 bg-[#060b1f] shadow-2xl transition-transform duration-500 ease-out md:hidden ${
+        <div className={`fixed top-[73px] bottom-0 right-0 z-50 w-[78%] max-w-[320px] border-l border-white/10 bg-[#060b1f] shadow-2xl transition-transform duration-500 ease-out md:hidden ${
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
