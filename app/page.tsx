@@ -84,7 +84,7 @@ export default function AcademicPersonalSite() {
     <div className="min-h-screen bg-[#070d24] text-[#edf2ff] selection:bg-[#946b2d]/40 selection:text-white">
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(27,42,107,0.45),_transparent_35%),radial-gradient(circle_at_bottom_right,_rgba(148,107,45,0.14),_transparent_25%)]" />
 
-			<header className="sticky top-0 z-20 border-b border-[#946b2d]/20 bg-[#070d24]/85 backdrop-blur">
+			<header className="sticky top-0 z-30 border-b border-[#946b2d]/20 bg-[#070d24]/85 backdrop-blur">
 				<div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
 					
 					<div className="flex flex-col items-start">
@@ -98,7 +98,6 @@ export default function AcademicPersonalSite() {
 						/>
 					</div>
 
-					{/* Desktop nav */}
 					<nav className="hidden gap-6 md:flex">
 						{sections.map((item) => (
 							<a
@@ -113,11 +112,10 @@ export default function AcademicPersonalSite() {
 						))}
 					</nav>
 
-					{/* Mobile menu button */}
 					<button
 						type="button"
 						onClick={() => setMobileMenuOpen(true)}
-						className="flex h-10 w-10 items-center justify-center rounded-full border border-[#946b2d]/30 bg-white/5 text-[#edf2ff] md:hidden"
+						className="flex h-10 w-10 items-center justify-center rounded-full border border-[#946b2d]/30 bg-white/5 text-[#edf2ff] transition duration-300 hover:bg-white/10 md:hidden"
 						aria-label="Open menu"
 					>
 						<svg
@@ -137,63 +135,79 @@ export default function AcademicPersonalSite() {
 					</button>
 				</div>
 
-				{/* Mobile menu */}
-				{mobileMenuOpen && (
-					<div className="fixed inset-0 z-30 bg-[#070d24]/95 backdrop-blur-md md:hidden">
-						<div className="flex min-h-screen flex-col px-6 py-5">
-							
-							<div className="flex items-start justify-between">
-								<div className="flex flex-col items-start">
-									<p className="font-[Glitten] text-[10px] uppercase tracking-[0.28em] text-[#b8c4f2]">
-										Simplicity is Intelligence
-									</p>
-									<img
-										src="/logo.png"
-										alt="logo"
-										className="mt-1 h-7 w-auto opacity-90"
-									/>
-								</div>
+				<div
+					className={`fixed inset-0 z-40 md:hidden transition-all duration-500 ${
+						mobileMenuOpen ? "pointer-events-auto" : "pointer-events-none"
+					}`}
+				>
+					<div
+						className={`absolute inset-0 bg-black/35 transition-opacity duration-500 ${
+							mobileMenuOpen ? "opacity-100" : "opacity-0"
+						}`}
+						onClick={() => setMobileMenuOpen(false)}
+					/>
 
-								<button
-									type="button"
-									onClick={() => setMobileMenuOpen(false)}
-									className="flex h-10 w-10 items-center justify-center rounded-full border border-[#946b2d]/30 bg-white/5 text-[#edf2ff]"
-									aria-label="Close menu"
-								>
-									<svg
-										xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 24 24"
-										fill="none"
-										stroke="currentColor"
-										strokeWidth="1.8"
-										className="h-5 w-5"
-									>
-										<path
-											strokeLinecap="round"
-											strokeLinejoin="round"
-											d="M6 6l12 12M18 6L6 18"
-										/>
-									</svg>
-								</button>
+					<div
+						className={`absolute right-0 top-0 flex h-full w-[78%] max-w-[320px] flex-col border-l border-white/10 bg-[#050a1a]/96 px-6 py-5 shadow-2xl backdrop-blur-xl transition-transform duration-500 ease-out ${
+							mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+						}`}
+					>
+						<div className="flex items-start justify-between">
+							<div className="flex flex-col items-start">
+								<p className="font-[Glitten] text-[10px] uppercase tracking-[0.24em] text-[#b8c4f2]">
+									Simplicity is Intelligence
+								</p>
+								<img
+									src="/logo.png"
+									alt="logo"
+									className="mt-1 h-7 w-auto opacity-90"
+								/>
 							</div>
 
-							<nav className="mt-14 flex flex-col gap-6">
-								{sections.map((item) => (
-									<a
-										key={item.label}
-										href={item.href}
-										target={item.href === "/cv.pdf" ? "_blank" : "_self"}
-										rel="noopener noreferrer"
-										onClick={() => setMobileMenuOpen(false)}
-										className="font-[Montserrat] text-2xl text-[#edf2ff] transition hover:text-[#c4933f]"
-									>
-										{item.label}
-									</a>
-								))}
-							</nav>
+							<button
+								type="button"
+								onClick={() => setMobileMenuOpen(false)}
+								className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[#edf2ff] transition duration-300 hover:bg-white/10"
+								aria-label="Close menu"
+							>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									strokeWidth="1.8"
+									className="h-5 w-5"
+								>
+									<path
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										d="M6 6l12 12M18 6L6 18"
+									/>
+								</svg>
+							</button>
 						</div>
+
+						<nav className="mt-12 flex flex-col gap-7">
+							{sections.map((item, index) => (
+								<a
+									key={item.label}
+									href={item.href}
+									target={item.href === "/cv.pdf" ? "_blank" : "_self"}
+									rel="noopener noreferrer"
+									onClick={() => setMobileMenuOpen(false)}
+									className={`font-[Montserrat] text-[1.9rem] leading-none text-[#edf2ff] transition-all duration-500 hover:text-[#c4933f] ${
+										mobileMenuOpen
+											? "translate-x-0 opacity-100"
+											: "translate-x-6 opacity-0"
+									}`}
+									style={{ transitionDelay: `${index * 60}ms` }}
+								>
+									{item.label}
+								</a>
+							))}
+						</nav>
 					</div>
-				)}
+				</div>
 			</header>
 
       <main>
