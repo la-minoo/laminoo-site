@@ -495,7 +495,7 @@ export default function AcademicPersonalSite() {
                   </p>
                   <p>
                     <span className="font-semibold text-[#91a5ef]">Web &amp; Misc:</span>{" "}
-                    HTML/CSS, SeleniumBase, Streamlit, Git
+                    HTML/CSS, TypeScript, SeleniumBase, Streamlit, Git
                   </p>
                 </div>
               </div>
@@ -621,7 +621,7 @@ export default function AcademicPersonalSite() {
                       <span className="font-semibold text-[#91a5ef]">
                         Web &amp; Misc:
                       </span>{" "}
-                      HTML/CSS, SeleniumBase, Streamlit, Git
+                      HTML/CSS, TypeScript, SeleniumBase, Streamlit, Git
                     </p>
                   </div>
                 </div>
