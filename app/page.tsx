@@ -247,7 +247,7 @@ export default function AcademicPersonalSite() {
               I am an analytics and information systems student developing a
               research profile in data science. My work is focused on predictive
               modeling, as well as text-based data analysis and representation
-              learning for natural language data, which includes (transfer) embeddings
+              learning for natural language data using (transfer) embeddings
               and semantic structures. My interests also extend to the
               interpretability and reliability of machine learning models in
               contexts related to explainable AI and autonomous systems.
@@ -390,7 +390,7 @@ export default function AcademicPersonalSite() {
                   Korea University Business School
                 </p>
                 <p className="mt-1 text-sm font-[Montserrat] text-[#d8e1ff]">
-                  Education, Coursework, Experience, Awards, and Skills
+                  Education | Coursework | Experience | Awards | Skills
                 </p>
               </div>
             </button>
@@ -655,7 +655,7 @@ export default function AcademicPersonalSite() {
 							<ul className="mt-4 space-y-2 text-sm leading-7 text-[#d5def8] font-[Montserrat]">
 								<li><span className="text-white font-medium">Decision-aware Prediction</span></li>
 								<li>Distribution Shift</li>
-								<li>Representation Learning for Structured Data</li>
+								<li>Representation Learning for Text and Structured Data</li>
 								<li>Transfer / Meta Learning</li>
 							</ul>
 						</motion.div>
