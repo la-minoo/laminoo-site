@@ -240,7 +240,7 @@ export default function AcademicPersonalSite() {
             <p className="mb-4 text-sm uppercase tracking-[0.35em] text-[#c4933f] font-[Glitten]">
               Analytics · Information Systems · Data Science
             </p>
-            <h2 className="max-w-3xl font-serif text-5xl leading-tight text-white md:text-6xl">
+            <h2 className="max-w-3xl font-serif text-7xl leading-tight text-white md:text-6xl">
               MINOO LA
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[#d7def7] font-[Montserrat]">
