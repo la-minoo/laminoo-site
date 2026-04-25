@@ -85,7 +85,7 @@ export default function AcademicPersonalSite() {
   const workItems = [
     {
       title: "Project 1",
-      description: "Project incoming",
+      description: "Project pending upload",
       link: "https://",
     },
     {
