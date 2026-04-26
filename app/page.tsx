@@ -330,8 +330,9 @@ export default function AcademicPersonalSite() {
                       </li>
                       <li>
                         Research paper analysis
-                        using PDF parsing, document-level search, classification-guided summarization
-                      </li>
+                        using PDF parsing, claim support/refute, retrieval verification, classification-guided summarization | 
+                        AllenAI scifact / ArXiv API
+                     </li>
                     </ul>
                   </div>
                 </div>
