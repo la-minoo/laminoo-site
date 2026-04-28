@@ -295,7 +295,7 @@ export default function AcademicPersonalSite() {
                     <p>Education</p>
                   </div>
                   <p>Korea University Business School</p>
-                  <p>Undergraduate, BBA (Feb 2027)</p>
+                  <p>Undergraduate, BBA</p>
                   <p>Concentration: IS · Analytics</p>
                 </div>
 
@@ -315,7 +315,8 @@ export default function AcademicPersonalSite() {
 
                   <div className="mt-3 space-y-2 text-sm leading-7 text-[#dce5ff] font-[Montserrat]">
                     <p>
-                      Building an SNS text analytics project for business use
+                      Building a financial news text analytics project for stock price movement
+                      prediction and interpretation problem
                       (web scraping, preprocessing evaluation)
                     </p>
 
