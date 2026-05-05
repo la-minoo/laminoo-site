@@ -310,7 +310,7 @@ export default function AcademicPersonalSite() {
                   <div>
                     <div className="flex items-center gap-2 text-[#91a5ef]">
                     <Cpu className="h-[18px] w-[18px] text-[#c4933f]" />
-                    <p>Current Work (Apr 2026)</p>
+                    <p>Current Work (May 2026)</p>
                   </div>
 
                   <div className="mt-3 space-y-2 text-sm leading-7 text-[#dce5ff] font-[Montserrat]">
@@ -385,7 +385,7 @@ export default function AcademicPersonalSite() {
               </div>
 
               <div className="min-w-0 flex-1">
-                <p className="font-[Glitten] text-sm uppercase tracking-[0.28em] text-[#c4933f]">
+                <p className="font-[Motserrat] text-sm uppercase tracking-[0.28em] text-[#c4933f]">
                   TAP TO EXPAND
                 </p>
                 <p className="mt-1 font-serif text-xl text-white">
@@ -480,7 +480,7 @@ export default function AcademicPersonalSite() {
                 <div className="mt-4 space-y-3">
                   <p>
                     <span className="font-semibold text-[#91a5ef]">Programming:</span>{" "}
-                    Python, R, SQL (PostgreSQL), C++
+                    Python, R, SQL (MySQL, PostgreSQL), C++
                   </p>
                   <p>
                     <span className="font-semibold text-[#91a5ef]">
@@ -603,7 +603,7 @@ export default function AcademicPersonalSite() {
                       <span className="font-semibold text-[#91a5ef]">
                         Programming:
                       </span>{" "}
-                      Python, R, SQL (PostgreSQL), C++
+                      Python, R, SQL (MySQL, PostgreSQL), C++
                     </p>
                     <p>
                       <span className="font-semibold text-[#91a5ef]">
