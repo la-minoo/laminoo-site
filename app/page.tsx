@@ -385,7 +385,7 @@ export default function AcademicPersonalSite() {
               </div>
 
               <div className="min-w-0 flex-1">
-                <p className="font-[Motserrat] text-sm uppercase tracking-[0.28em] text-[#c4933f]">
+                <p className="font-[Montserrat] text-sm uppercase tracking-[0.28em] text-[#c4933f]">
                   TAP TO EXPAND
                 </p>
                 <p className="mt-1 font-serif text-xl text-white">
